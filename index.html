@@ -5,69 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carta Secreta</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fce4ec;
-    }
-    .screen {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .active {
-      display: flex;
-    }
-    .password-screen {
-      flex-direction: column;
-    }
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(3, 60px);
-      gap: 10px;
-      margin-top: 20px;
-      justify-content: center;
-    }
-    .key {
-      background-color: #f8bbd0;
-      border: none;
-      border-radius: 10px;
-      font-size: 20px;
-      padding: 15px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .key:hover {
-      background-color: #f48fb1;
-    }
-    .input-display {
-      font-size: 24px;
-      margin-top: 20px;
-      letter-spacing: 8px;
-    }
-    .notepad {
-      background-color: #fff0f6;
-      border: 3px solid #f8bbd0;
-      padding: 20px;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 500px;
-      text-align: left;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      line-height: 1.6;
-    }
-    .notepad h3 {
-      margin-top: 0;
-    }
-  </style>
+  * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/originals/53/ab/7b/53ab7b24686b44423dd022b8a994dd81.gif') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .screen {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+  }
+
+  .active {
+    display: flex;
+  }
+
+  .password-screen {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .key {
+    background-color: #ffffff;
+    border: 2px solid #7e7e7e;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .input-display {
+    font-size: 24px;
+    margin-top: 20px;
+    letter-spacing: 8px;
+  }
+
+  .notepad {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 3px solid #7e7e7e;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 520px;
+    height: 80dvh;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover; /* mantenemos tu estilo original */
+  }
+
+  .note-content {
+    padding: 25px;
+    overflow-y: auto;
+    line-height: 1.7;
+  }
+
+  .note-content h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .note-content p {
+    text-align: justify;
+    margin-top: 12px;
+  }
+
+  .spotify {
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
+
 <div id="passwordScreen" class="screen password-screen active">
-  <h2>🔒 Enter password</h2>
+  <h2>🔒 Ingresa la contraseña</h2>
   <div class="input-display" id="inputDisplay">••••</div>
+
   <div class="keypad">
     <button class="key" onclick="enterDigit('1')">1</button>
     <button class="key" onclick="enterDigit('2')">2</button>
@@ -76,56 +111,82 @@
     <button class="key" onclick="enterDigit('5')">5</button>
     <button class="key" onclick="enterDigit('6')">6</button>
     <button class="key" onclick="enterDigit('7')">7</button>
-    <button class="key" onclick="enterDigit('9')">9</button>
     <button class="key" onclick="enterDigit('8')">8</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
     <div></div>
     <button class="key" onclick="enterDigit('0')">0</button>
     <div></div>
   </div>
 </div>
+
 <div id="notepadScreen" class="screen">
   <div class="notepad">
-    <h3>📅 24 Junio 2025 </h3>
-    <h4>💌 Mi Querido Darlin </h4>
-    <p>
-      Quiero que sepas lo feliz que soy por tenerte en mi vida. Desde que llegaste, todo cambió para mejor.
-      Me haces sentir amada, cuidada y acompañada de una forma que nunca antes había sentido.
-    </p>
-    <p>
-      A tu lado aprendí lo que es el amor verdadero, ese que se demuestra con acciones, con palabras sinceras
-      y con esos pequeños detalles que hacen la diferencia. Gracias por estar siempre conmigo, por darme tu
-      tiempo, tu cariño y tu comprensión.
-    </p>
-    <p>
-      No sé cómo explicarlo, pero contigo mi corazón está en paz. Eres mi alegría diaria
-      y la razón de tantas sonrisas.
-    </p>
-    <p>
-      Te amo profundamente. ♡
-    </p>
+
+    <img
+      src="https://i.pinimg.com/736x/84/c8/47/84c84707a94180f5380fdc0359aba38e.jpg"
+      class="banner-img"
+      alt="banner romántico"
+    >
+
+    <div class="note-content">
+      <h3>Nei somos esos</h3>
+
+      <p>
+        23 de diciembre, 2025. En esa fecha te confesé que me solías gustar y ese mismo día volví a retomar el enamoramiento que sentía por ti.
+      </p>
+
+      <p>
+        Nei, lograste encontrar la segunda contraseña, eso es muy genial. También espero que la leas completa, creo que debería hacerte un quiz para ver si las leíste todas o solo las dejaste pasar, honestamente si te veo capaz de solo pasar las cartas y hacer como que leíste y está mal pensar así.
+      </p>
+
+      <p>
+        ¿Qué te puedo decir en esta carta? Quizás poner en lista todo lo que me gusta de ti, pero sería triste porque tendría que enlistar a un Nei joven y no el de ahora, el de ahora me ha hecho sentir cosas muy tristes, pero aún así me quedo porque en serio me gustas mucho. Mejor debería poner cuánto te quiero. Te quiero tantoooo, muchoooo, demasiadoooo.
+      </p>
+
+      <p>
+        Sabes, me gusta oír tu voz, realmente es algo muy único. Es que jamás había escuchado un tono de voz así y me gusta, hace que me avergüence y ponga roja de escucharte hablar. Cuando me pediste esa llamada por DC, te juro que estaba muy avergonzada, mis cachetes estaban muy calientes y rosas, fue algo chistoso la verdad. Incluso me sentía un poco molesta porque me estabas mandando a dormir, como quería callarte y decirte todo lo que sentía en ese momento y que dejaras de mandarme a dormir, me gusta estar contigo como para que fueras tan molesto y hicieras algo tan malvado como eso.
+      </p>
+
+      <p>
+        Ahhh, como te quiero mucho, poste malvado. Me encantas morenito lindo solo por eso, si descifraste esta carta primero, entonces tu premio es 1 bendición lunar + pagar tu sub de nitro.
+      </p>
+
+      <div class="spotify">
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/5expoVGQPvXuwBBFuNGqBd?si=iN7DWTIDQLS9BTphiMLEZQ"
+          width="100%" height="80" frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+    </div>
   </div>
 </div>
+
 <script>
-  const correctPassword = '0110';
+  const correctPassword = '1223';
   let input = '';
+
   function enterDigit(digit) {
-    if (input.length < 4) {
-      input += digit;
-    }
+    if (input.length < 4) input += digit;
+
     const display = document.getElementById('inputDisplay');
     display.textContent = input.padEnd(4, '•');
+
     if (input.length === 4) {
       if (input === correctPassword) {
         document.getElementById('passwordScreen').classList.remove('active');
         document.getElementById('notepadScreen').classList.add('active');
       } else {
-        alert('Contraseña incorecta, intenta de nuevo');
+        alert('Contraseña incorrecta, intenta de nuevo');
         input = '';
         display.textContent = '••••';
       }
     }
   }
 </script>
+
 </body>
 
 </html>
+
